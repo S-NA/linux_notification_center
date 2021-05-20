@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        stack: ["2.5.1"]
+        stack: ["latest"]
         ghc: ["8.10.4"]
 
     steps:
