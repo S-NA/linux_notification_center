@@ -39,7 +39,7 @@ jobs:
     
     - name: Install dependencies
       run: |
-        stack --stack-yaml=stack.yaml build --test --bench --no-run-tests --no-run-benchmarks --only-dependencies
+        stack --stack-yaml=stack.yaml install --test --bench --no-run-tests --no-run-benchmarks --only-dependencies
     - name: Build
       run: |
         stack --stack-yaml=stack.yaml build --test --bench --no-run-tests --no-run-benchmarks
