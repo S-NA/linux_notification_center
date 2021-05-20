@@ -33,11 +33,9 @@ jobs:
       id: setup-haskell-stack
       name: Setup Stack
       with:
-        ghc-version: ${{ matrix.ghc }}
-        stack-version: ${{ matrix.stack }}
         enable-stack: true
-        stack-no-global: true
         stack-setup-ghc: true
+        stack-no-global: true
     
     - name: Install dependencies
       run: |
