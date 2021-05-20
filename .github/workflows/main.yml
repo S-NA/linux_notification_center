@@ -44,6 +44,7 @@ jobs:
         enable-stack: true
         stack-setup-ghc: true
         stack-no-global: true
+        ghc-version: '8.10.4'
 
     - name: Build
       if: matrix.stack_yaml == 'stack.yaml'
