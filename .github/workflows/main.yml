@@ -84,6 +84,12 @@ jobs:
         ghc-version: ${{ matrix.ghc }}
         cabal-version: ${{ matrix.cabal }}
 
+    - name: Update package list
+      run: sudo apt-get update
+
+    - name: Install non-Haskell dependencies
+      run: sudo apt-get install libgtk-3-dev gobject-introspection libgirepository1.0-dev libwebkit2gtk-4.0-dev libgtksourceview-3.0-dev
+
     # This freeze file is regenerated on every build, so we will always test
     # with the most recent version of our dependencies allowed by our upper
     # bounds.
@@ -100,12 +106,6 @@ jobs:
         path: |
           ${{ steps.setup-haskell-cabal.outputs.cabal-store }}
         key: ${{ runner.os }}-cabal-v2-${{ hashFiles('cabal.project.freeze') }}
-
-    - name: Update package list
-      run: sudo apt-get update
-
-    - name: Install non-Haskell dependencies
-      run: sudo apt-get install libgtk-3-dev gobject-introspection libgirepository1.0-dev libwebkit2gtk-4.0-dev libgtksourceview-3.0-dev
 
     - name: Build
       run: |
