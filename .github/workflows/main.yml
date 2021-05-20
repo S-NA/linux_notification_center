@@ -46,6 +46,12 @@ jobs:
         stack-no-global: true
         ghc-version: '8.10.4'
 
+    - name: Update package list
+      run: sudo apt-get update
+
+    - name: Install non-Haskell dependencies
+      run: sudo apt-get install libgtk-3-dev gobject-introspection libgirepository1.0-dev libwebkit2gtk-4.0-dev libgtksourceview-3.0-dev
+      
     - name: Build
       if: matrix.stack_yaml == 'stack.yaml'
       run: |
@@ -65,7 +71,7 @@ jobs:
           # version of everything. We use cabal because it uses the latest
           # versions of our dependencies allowed by our upper bounds.
           - name: newest
-            ghc: latest
+            ghc: '8.10.4'
             os: ubuntu-latest
 
     steps:
@@ -94,6 +100,12 @@ jobs:
         path: |
           ${{ steps.setup-haskell-cabal.outputs.cabal-store }}
         key: ${{ runner.os }}-cabal-v2-${{ hashFiles('cabal.project.freeze') }}
+
+    - name: Update package list
+      run: sudo apt-get update
+
+    - name: Install non-Haskell dependencies
+      run: sudo apt-get install libgtk-3-dev gobject-introspection libgirepository1.0-dev libwebkit2gtk-4.0-dev libgtksourceview-3.0-dev
 
     - name: Build
       run: |
