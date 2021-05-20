@@ -2,9 +2,7 @@ name: CI
 
 # Trigger the workflow on push or pull request, but only for the main branch
 on:
-  pull_request:
-  push:
-    branches: [main]
+  [push,pull_request]
 
 jobs:
   stack:
