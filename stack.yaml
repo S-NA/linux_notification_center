@@ -15,7 +15,7 @@
 # resolver:
 #  name: custom-snapshot
 #  location: "./custom-snapshot.yaml"
-resolver: mysnapshot.yaml
+resolver: lts-18.0
 
 # User packages to be built.
 # Various formats can be used as shown in the example below.
@@ -39,8 +39,11 @@ packages:
 - '.'
 # Dependency packages to be pulled from upstream that are not in the resolver
 # (e.g., acme-missiles-0.3)
-extra-deps: [ env-locale-1.0.0.1
+extra-deps: [ ConfigFile-1.1.4
+            , env-locale-1.0.0.1
             , haskell-gettext-0.1.2.0
+            , MissingH-1.4.3.0
+            , random-1.1@
             ]
 
 # Override default flag values for local packages and extra-deps
