@@ -72,6 +72,7 @@ jobs:
           # versions of our dependencies allowed by our upper bounds.
           - name: newest
             ghc: '8.10.4'
+            cabal: 'latest'
             os: ubuntu-latest
 
     steps:
@@ -95,6 +96,7 @@ jobs:
     # bounds.
     - name: Freeze
       run: |
+        cabal update
         cabal v2-configure --enable-tests --enable-benchmarks --test-show-details=direct
         cabal freeze
 
